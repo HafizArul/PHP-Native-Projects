@@ -1,0 +1,9 @@
+.register-form {
+    list-style: none;
+}
+
+.btn-actions {
+    display: flex;
+    width: calc(100% - var(--ul-padding) * 2);
+    justify-content: flex-end;
+}
