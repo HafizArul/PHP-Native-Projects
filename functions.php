@@ -61,4 +61,14 @@ function ubahData($data) {
 
     return mysqli_affected_rows($DB_Connect);
 }
+
+function cariData($keyword) {
+    $SQL_Query = "SELECT * FROM mahasiswa
+        WHERE Nama_Mhs LIKE '%$keyword%' OR
+        NIM LIKE '%$keyword%' OR
+        Prodi LIKE '%$keyword%' OR
+        Email LIKE '%$keyword%'";
+
+    return query($SQL_Query);
+}
 ?>
