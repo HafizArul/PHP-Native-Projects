@@ -1,0 +1,23 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
+.table-footer, .table-head {
+    font-weight: bold;
+    background-color: #eaeaea;
+}
+
+.page-number-container {
+    display: flex;
+    gap: 12px;
+}
+
+.page-number-container .page-number {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-number-container .page-number.selected-page {
+    background-color: #aaa;
+}

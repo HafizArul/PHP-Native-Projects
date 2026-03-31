@@ -1,0 +1,10 @@
+.container {
+    height: auto;
+}
+
+.gambar-lama {
+    display: flex;
+    align-items: start;
+    gap: 24px;
+    margin-bottom: 32px;
+}
