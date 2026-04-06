@@ -1,0 +1,34 @@
+body {
+    font-family: "Montserrat", "Segoe UI";
+}
+
+.container {
+    margin: 56px auto;
+    height: 60%;
+    width: 50vw;
+    padding: 24px 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+}
+
+.container ul {
+    --ul-padding: 12px;
+    padding-left: var(--ul-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+}
+
+.container ul input:not([type="submit"]) {
+    width: calc(100% - var(--ul-padding) * 2);
+    height: 24px;
+}
+
+.container form ul li#btns {
+    padding-right: calc(2 * var(--ul-padding));
+    display: flex;
+    justify-content: space-between;
+}
