@@ -5,9 +5,7 @@ require 'functions.php';
 // mysqli_fetch_assoc() -> mengembalikan array asosiatif
 // mysqli_fetch_array() -> dapat mengembalikan array asosiatif dan numerik dengan menumpuknya
 // mysqli_fetch_object() -> mengembalikan object
-// foreach ($mhs = mysqli_fetch_assoc($result) as $m) {
-//     echo $m."<br>";
-// }
+
 $mahasiswa = query("SELECT * FROM mahasiswa ORDER BY Id_Mhs ASC");
 
 // Ketika tombol cari diklik

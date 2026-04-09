@@ -5,7 +5,7 @@ function query($query) {
     global $DB_Connect;
     $result = mysqli_query($DB_Connect, $query);
     $rows = [];
-    while($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
 
