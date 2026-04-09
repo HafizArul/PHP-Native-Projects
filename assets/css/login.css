@@ -8,6 +8,24 @@
     margin-top: 64px;
 }
 
+ul.register-form li#remember-me {
+    width: calc(100% - var(--ul-padding) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 1.5em;
+}
+
+ul.register-form li#remember-me input {
+    width: 1.5em;
+}
+
+ul.register-form li#remember-me label {
+    padding: 0;
+    line-height: 1;
+}
+
 @media screen and (min-width: 1024px) {
     .login-form {
         min-width: 500px;
