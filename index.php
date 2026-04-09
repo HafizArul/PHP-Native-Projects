@@ -40,7 +40,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <tr>
             <td><?= ++$counter ?></td>
             <td>
-                <a href="">Ubah</a> |
+                <a href="ubah.php?Id_Mhs=<?= $row['Id_Mhs'] ?>">Ubah</a> |
                 <a href="hapus.php?Id_Mhs=<?= $row["Id_Mhs"] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $row['Nama_Mhs'] ?>?')">Hapus</a>
             </td>
             <td><img src="assets/img/<?= $row["Gambar"] ?>" alt="<?= $row["Gambar"] ?>" style="height: 90px; object-fit: contain;"></td>
