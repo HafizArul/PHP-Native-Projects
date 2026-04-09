@@ -5,9 +5,15 @@ require 'functions.php';
 if (isset($_POST["submit"])) {
     // Cek apakah data berhasil ditambahkan
     if (tambahData($_POST) > 0) {
+<<<<<<< HEAD
         $outputMsg = "Data berhasil ditambahkan!";
     } else {
         $outputMsg = "Data gagal ditambahkan!";
+=======
+        $outputMsg = "<p style='color: green;'>Data berhasil ditambahkan!</p>";
+    } else {
+        $outputMsg = "<p style='color: red;'>Data gagal ditambahkan!</p>";
+>>>>>>> 06-Database-Integration-6-File-Upload
     }
 }
 echo "<br>";
@@ -25,7 +31,11 @@ echo "<br>";
     <div class="container">
         <h1>Tambah Data Mahasiswa</h1>
     
+<<<<<<< HEAD
         <form action="" method="POST">
+=======
+        <form action="" method="POST" enctype="multipart/form-data">
+>>>>>>> 06-Database-Integration-6-File-Upload
             <ul style="list-style: none;">
                 <li>
                     <label for="nama">Nama Mahasiswa</label><br>
@@ -45,7 +55,11 @@ echo "<br>";
                 </li>
                 <li>
                     <label for="gambar">Gambar Mahasiswa</label><br>
+<<<<<<< HEAD
                     <input type="text" name="gambar" id="gambar">
+=======
+                    <input type="file" name="gambar" id="gambar" style="padding: 4px; border: 1px solid #000; height: auto;">
+>>>>>>> 06-Database-Integration-6-File-Upload
                 </li>
                 <li id="btns">
                     <a href="index.php">Kembali ke halaman utama</a>
@@ -54,7 +68,11 @@ echo "<br>";
                         <button type="submit" name="submit">Tambah Data</button>
                     </div>
                 </li>
+<<<<<<< HEAD
                 <li><?= isset($_POST["submit"])? $outputMsg : "" ?></li>
+=======
+                <li id="outputMsg"><?= isset($_POST["submit"])? $outputMsg : "" ?></li>
+>>>>>>> 06-Database-Integration-6-File-Upload
             </ul>
         </form>
     </div>

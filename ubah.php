@@ -11,9 +11,9 @@ $mhs = query("SELECT * FROM mahasiswa WHERE Id_Mhs = $id")[0];
 if (isset($_POST["submit"])) {
     // Cek apakah data berhasil diubah
     if (ubahData($_POST) > 0) {
-        $outputMsg = "Data berhasil diubah!";
+        $outputMsg = "<p style='color: green;'>Data berhasil diubah!</p>";
     } else {
-        $outputMsg = "Data gagal diubah!";
+        $outputMsg = "<p style='color: red;'>Data gagal diubah!</p>";
     }
 }
 echo "<br>";
@@ -31,8 +31,9 @@ echo "<br>";
     <div class="container">
         <h1>Ubah Data Mahasiswa</h1>
     
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $mhs['Id_Mhs'] ?>">
+            <input type="hidden" name="gambarLama" value="<?= $mhs['Gambar'] ?>">
             <ul style="list-style: none;">
                 <li>
                     <label for="nama">Nama Mahasiswa</label><br>
@@ -52,7 +53,8 @@ echo "<br>";
                 </li>
                 <li>
                     <label for="gambar">Gambar Mahasiswa</label><br>
-                    <input type="text" name="gambar" id="gambar" value="<?= $mhs['Gambar'] ?>">
+                    <input type="file" name="gambar" id="gambar" style="padding: 4px; border: 1px solid #000; height: auto; margin-bottom: 16px;">
+                    <img src="assets/img/<?= $mhs['Gambar'] ?>" height="120">
                 </li>
                 <li id="btns">
                     <a href="index.php">Kembali ke halaman utama</a>
@@ -61,7 +63,7 @@ echo "<br>";
                         <button type="submit" name="submit">Ubah Data</button>
                     </div>
                 </li>
-                <li><?= isset($_POST["submit"])? $outputMsg : "" ?></li>
+                <li><?= isset($_POST["submit"]) ? $outputMsg : "" ?></li>
             </ul>
         </form>
     </div>
