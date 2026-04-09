@@ -1,4 +1,7 @@
 <?php
+// Simulasi loading (TIDAK DISARANKAN UNTUK PRODUKSI)
+sleep(1);
+
 require '../functions.php';
 
 // Kunci pencarian

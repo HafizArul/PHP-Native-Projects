@@ -1,0 +1,36 @@
+form {
+    --loader-size: 24px;
+    display: flex;
+    gap: 24px;
+}
+
+form input#keyword {
+    height: var(--loader-size);
+}
+
+span.loader {
+    --loader-border-black: 4px solid #444;
+    --loader-border-white: 4px solid #fff;
+    display: none;
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border-top: var(--loader-border-black);
+    border-bottom: var(--loader-border-black);
+    border-left: var(--loader-border-white);
+    border-right: var(--loader-border-white);
+    position: relative;
+    left: 24px;
+    border-radius: 50%;
+    z-index: -1;
+    animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

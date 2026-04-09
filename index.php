@@ -26,6 +26,7 @@ if (isset($_POST['cari'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/utils.css">
     <title>Halaman Admin</title>
 </head>
 <body>
@@ -38,6 +39,7 @@ if (isset($_POST['cari'])) {
     <form action="" method="POST">
         <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off" id="keyword">
         <button type="submit" name="cari" id="search-btn">Cari!</button>
+        <span class="loader"></span>
     </form>
     <br>
     <div id="container">
@@ -72,7 +74,7 @@ if (isset($_POST['cari'])) {
         </table>
     </div>
 
-
+    <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/script.js"></script>
 
 </body>
