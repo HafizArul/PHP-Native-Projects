@@ -122,7 +122,39 @@ function uploadGambar() {
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
-    move_uploaded_file($tmpName, 'assets/img/'.$namaFileBaru);
+    move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
     return $namaFileBaru;
 }
-?>
+
+function register($data) {
+    global $DB_Connect;
+
+    $username = strtolower(stripslashes($data['username'])); // Memaksa user agar tidak mengisi karakter slash (/, \)
+    $password = mysqli_real_escape_string($DB_Connect, $data['password']);  // Agar user dapat mengisi password dgn simbol spt kutip ('', "")
+    $confirmPassword = mysqli_real_escape_string($DB_Connect, $data['confirmPassword']);
+
+    // Cek apakah username sudah ada atau belum
+    $result = mysqli_query($DB_Connect, "SELECT username FROM user WHERE username = '$username'");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('Username telah terdaftar!');
+            </script>";
+        return false;
+    }
+
+    // Cek konfirmasi password
+    if ($password !== $confirmPassword) {
+        echo "<script>
+            alert('Konfirmasi password tidak sesuai');
+        </script>";
+        return false;
+    }
+
+    // Enkripsi password
+    // PASSWORD_DEFAULT : Algoritma yg dipilih scr default oleh PHP, algoritma yg terus berubah ketika ada cara pengamanan baru
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Insert ke db
+    mysqli_query($DB_Connect, "INSERT INTO user VALUES ('','$username','$password')");
+    return mysqli_affected_rows($DB_Connect);
+}
