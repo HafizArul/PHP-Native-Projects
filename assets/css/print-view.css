@@ -1,0 +1,7 @@
+body { font-family: 'Montserrat', 'Segoe UI'; }
+
+table tr:nth-child(2n+3) { background-color: #ddd; }
+
+table tr:nth-child(2n) { background-color: #aaa; }
+
+table tr.header-row { background-color: #888; }

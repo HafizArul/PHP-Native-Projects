@@ -17,7 +17,7 @@ $mahasiswa = query($query);
 <table border="1" cellpadding="10" cellspacing="0">
     <tr>
         <th>No.</th>
-        <th>Aksi</th>
+        <th class="unprinted">Aksi</th>
         <th>Gambar</th>
         <th>Nama Mahasiswa</th>
         <th>NIM</th>
@@ -30,7 +30,7 @@ $mahasiswa = query($query);
     ?>
         <tr>
             <td><?= ++$counter ?></td>
-            <td>
+            <td class="unprinted">
                 <a href="ubah.php?Id_Mhs=<?= $row['Id_Mhs'] ?>">Ubah</a> |
                 <a href="hapus.php?Id_Mhs=<?= $row["Id_Mhs"] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $row['Nama_Mhs'] ?>?')">Hapus</a>
             </td>

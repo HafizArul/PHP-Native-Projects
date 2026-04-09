@@ -34,3 +34,9 @@ span.loader {
         transform: rotate(360deg);
     }
 }
+
+.container-inline {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
