@@ -5,6 +5,13 @@ require 'functions.php';
 // mysqli_fetch_assoc() -> mengembalikan array asosiatif
 // mysqli_fetch_array() -> dapat mengembalikan array asosiatif dan numerik dengan menumpuknya
 // mysqli_fetch_object() -> mengembalikan object
+session_start();
+
+// Jika tidak ada session login
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit;
+}
 
 $mahasiswa = query("SELECT * FROM mahasiswa ORDER BY Id_Mhs ASC");
 
@@ -25,6 +32,7 @@ if (isset($_POST['cari'])) {
     <h1>Daftar Mahasiswa</h1>
 
     <a href="tambah.php">Tambah Data Mahasiswa</a><br><br>
+    <a href="logout.php">Logout</a><br><br>
 
     <!-- Search Form -->
     <form action="" method="POST">

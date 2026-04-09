@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Jika ada session login
+if (isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit;
+}
+
 require 'functions.php';
 
 // Cek apakah tombol submit sudah ditekan
@@ -16,6 +24,9 @@ if (isset($_POST['login'])) {
         // Cek apakah password dari user sesuai dgn password yg dienkripsi/diacak, kebalikan password_hash()
         // password_verify($string_belum_diacak, $string_sudah_diacak)
         if (password_verify($password, $row['password'])) {
+            // Set session
+            $_SESSION['login'] = true;
+
             header("Location: index.php");
             exit;
         }
@@ -38,7 +49,7 @@ if (isset($_POST['login'])) {
     <title>Halaman Login</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container login-form">
         <h1>Login</h1>
 
         <?php if (isset($error)) : ?>
