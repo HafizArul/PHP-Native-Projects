@@ -1,8 +1,6 @@
 <?php
 require 'functions.php';
 
-$siswa = query("SELECT * FROM siswa");
-
 // mysqli_fetch_row() -> mengembalikan array numerik
 // mysqli_fetch_assoc() -> mengembalikan array asosiatif
 // mysqli_fetch_array() -> dapat mengembalikan array asosiatif dan numerik dengan menumpuknya
@@ -10,6 +8,7 @@ $siswa = query("SELECT * FROM siswa");
 // foreach ($mhs = mysqli_fetch_assoc($result) as $m) {
 //     echo $m."<br>";
 // }
+$mahasiswa = query("SELECT * FROM mahasiswa");
 
 ?>
 
@@ -21,37 +20,34 @@ $siswa = query("SELECT * FROM siswa");
     <title>Halaman Admin</title>
 </head>
 <body>
-    <h1>Daftar Siswa</h1>
+    <h1>Daftar Mahasiswa</h1>
 
+    <a href="tambah.php">Tambah Data Mahasiswa</a><br><br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
             <th>Aksi</th>
             <th>Gambar</th>
-            <th>NIS</th>
-            <th>Nama</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Jenis Kelamin</th>
-            <th>Alamat</th>
+            <th>Nama Mahasiswa</th>
+            <th>NIM</th>
+            <th>Prodi</th>
+            <th>Email</th>
         </tr>
         <?php
         $counter = 0;
-        foreach ($siswa as $row) :
+        foreach ($mahasiswa as $row) :
         ?>
         <tr>
             <td><?= ++$counter ?></td>
             <td>
                 <a href="">Ubah</a> |
-                <a href="">Hapus</a>
+                <a href="hapus.php?Id_Mhs=<?= $row["Id_Mhs"] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $row['Nama_Mhs'] ?>?')">Hapus</a>
             </td>
-            <td><img src="assets/img/gambar<?= $counter ?>.jpg" style="height: 90px; object-fit: contain;"></td>
-            <td><?= $row["NIS"] ?></td>
-            <td><?= $row["NAMA"] ?></td>
-            <td><?= $row["TEMPAT_LAHIR"] ?></td>
-            <td><?= $row["TGL_LAHIR"] ?></td>
-            <td><?= $row["JNS_KELAMIN"] ?></td>
-            <td><?= $row["ALAMAT"] ?></td>
+            <td><img src="assets/img/<?= $row["Gambar"] ?>" alt="<?= $row["Gambar"] ?>" style="height: 90px; object-fit: contain;"></td>
+            <td><?= $row["Nama_Mhs"] ?></td>
+            <td><?= $row["NIM"] ?></td>
+            <td><?= $row["Prodi"] ?></td>
+            <td><?= $row["Email"] ?></td>
         </tr>
         <?php endforeach ?>
     </table>
